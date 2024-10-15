@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:student_app4/CreateUserPage.dart';
 
-class StudentLoginPage extends StatelessWidget {
+class CreateUserPage extends StatelessWidget {
+  final TextEditingController nameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  final TextEditingController phoneController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Student Login'),
+        title: Text('Create New User'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -17,9 +18,25 @@ class StudentLoginPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             TextField(
+              controller: nameController,
+              decoration: InputDecoration(
+                labelText: 'Name',
+                border: OutlineInputBorder(),
+              ),
+            ),
+            SizedBox(height: 20),
+            TextField(
               controller: emailController,
               decoration: InputDecoration(
                 labelText: 'Email',
+                border: OutlineInputBorder(),
+              ),
+            ),
+            SizedBox(height: 20),
+            TextField(
+              controller: phoneController,
+              decoration: InputDecoration(
+                labelText: 'Phone No',
                 border: OutlineInputBorder(),
               ),
             ),
@@ -35,20 +52,9 @@ class StudentLoginPage extends StatelessWidget {
             SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                // Handle login logic for student
+                // Handle the creation of a new user
               },
-              child: Text('Login'),
-            ),
-            SizedBox(height: 20),
-            TextButton(
-              onPressed: () {
-                // Navigate to the "Create New User" page
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => CreateUserPage()),
-                );
-              },
-              child: Text('Create New User'),
+              child: Text('Create Account'),
             ),
           ],
         ),
