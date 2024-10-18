@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'teacher_registration.dart'; // Import the registration page
 
 class TeacherLoginPage extends StatelessWidget {
   final TextEditingController emailController = TextEditingController();
@@ -37,6 +38,17 @@ class TeacherLoginPage extends StatelessWidget {
                 // Handle login logic for teacher
               },
               child: Text('Login'),
+            ),
+            SizedBox(height: 20),
+            TextButton(
+              onPressed: () {
+                // Navigate to the Teacher Registration Page
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => TeacherRegistrationPage()),
+                );
+              },
+              child: Text('Create New Account'),
             ),
           ],
         ),
